@@ -121,14 +121,6 @@ export default function ContactSection() {
           happy to talk through any of the projects above in more depth.
         </motion.p>
 
-        <motion.span
-          variants={fadeUp}
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#E2B883]/40 bg-[#121214] px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-[#E2B883]"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-[#E2B883]" />
-          Available for internships &amp; junior roles
-        </motion.span>
-
         <motion.div
           variants={fadeUp}
           className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-3"

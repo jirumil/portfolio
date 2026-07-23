@@ -20,13 +20,14 @@ export default function Hero() {
         animate="visible"
         className="mx-auto flex min-h-[100vh] max-w-6xl flex-col justify-center gap-6 px-6 py-32 sm:px-10 lg:px-12"
       >
-        {/* Role Badge */}
-        <motion.span
+        {/* Role label */}
+        <motion.p
           variants={fadeUp}
-          className="inline-flex w-fit items-center rounded-full border border-primary/25 bg-surface px-4 py-1.5 font-mono text-xs uppercase tracking-[0.1em] text-navy/70"
+          className="font-mono text-[11px] uppercase tracking-[0.18em] text-navy/45 sm:text-xs"
         >
-          [ Web Developer / Practicing Full-Stack &amp; DevOps ]
-        </motion.span>
+          Web Developer <span className="text-navy/25">·</span> Full-Stack
+          &amp; DevOps
+        </motion.p>
 
         {/* Name */}
         <motion.p

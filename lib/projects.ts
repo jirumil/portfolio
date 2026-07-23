@@ -24,15 +24,14 @@ export const PROJECTS: Project[] = [
       "Product catalog with category browsing and search",
       "Persistent cart with smooth add/update/remove flows",
       "Database-backed PHP session handler for serverless compatibility",
-      "Deployed and live on Vercel via the vercel-php runtime",
+      "Hardened for serverless deployment on Vercel via the vercel-php runtime",
     ],
     takeaways: [
       "Restructuring a raw PHP codebase to fit a serverless runtime model without a framework's routing conventions to lean on",
       "Keeping session and config handling portable between local XAMPP and the deployed environment",
     ],
-    status: "Live",
+    status: "Repository Only",
     githubUrl: "https://github.com/jirumil/Richenia-Shop",
-    liveUrl: "https://richenia-shop.vercel.app",
   },
   {
     id: "guardrail-devops",
