@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -8,7 +9,8 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#08080a]">
+    <main className="bg-background">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <AboutSection />

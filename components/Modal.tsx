@@ -15,8 +15,7 @@ interface ModalProps {
 
 /**
  * Shared modal shell — backdrop + panel + Escape-to-close + scroll lock.
- * Used by both the legal drawers (Privacy/Terms) and the project focus
- * view, so open/close motion stays identical across the site.
+ * Used by the legal drawers (Privacy/Terms).
  */
 export default function Modal({
   open,
@@ -48,7 +47,7 @@ export default function Modal({
           animate="visible"
           exit="exit"
           onClick={onClose}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#08080a]/80 backdrop-blur-sm px-6"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy/40 backdrop-blur-sm px-6"
         >
           <motion.div
             role="dialog"
@@ -56,12 +55,12 @@ export default function Modal({
             aria-labelledby={labelledBy}
             variants={modalPanel}
             onClick={(e) => e.stopPropagation()}
-            className={`relative w-full ${maxWidthClassName} max-h-[85vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0c0c0f] p-6 sm:p-8 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_20px_60px_-15px_rgba(0,0,0,0.6)]`}
+            className={`relative w-full ${maxWidthClassName} max-h-[85vh] overflow-y-auto rounded-2xl border border-primary/20 bg-background p-6 shadow-[0_20px_60px_-15px_rgba(17,45,78,0.35)] sm:p-8`}
           >
             <button
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-5 top-5 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] text-white/50 transition-colors hover:border-white/25 hover:text-white"
+              className="absolute right-5 top-5 inline-flex h-8 w-8 items-center justify-center rounded-lg border border-primary/20 bg-surface text-navy/60 transition-colors hover:border-primary/40 hover:text-navy"
             >
               <X className="h-4 w-4" />
             </button>

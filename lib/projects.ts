@@ -1,70 +1,78 @@
-import type { LucideIcon } from "lucide-react";
-import { ShieldCheck, ShoppingCart } from "lucide-react";
-
 export interface Project {
   id: string;
-  eyebrow: string;
   title: string;
+  tags: string[];
   description: string;
   longDescription: string;
-  architecture: string[];
-  stats: { label: string; value: string }[];
-  stack: string[];
+  features: string[];
+  takeaways: string[];
+  status: "Live" | "Repository Only";
   githubUrl: string;
-  liveUrl: string;
-  accent: "violet" | "cyan";
-  icon: LucideIcon;
+  liveUrl?: string;
 }
 
 export const PROJECTS: Project[] = [
   {
-    id: "guardrail",
-    eyebrow: "Platform / DevOps",
-    title: "GuardRail",
-    description:
-      "Enterprise-grade asynchronous file ingestion and malware/threat-scanning pipeline.",
-    longDescription:
-      "GuardRail is an asynchronous file ingestion and malware/threat-scanning pipeline built for enterprise workloads. Files are routed through async blob storage, scanned by containerized workers, and the entire environment — from local development to cloud runtime — is defined as code so it can be reproduced or torn down deterministically.",
-    architecture: [
-      "Async blob routing decouples upload from scanning, so ingestion never blocks on scan latency.",
-      "Local development runs the full pipeline via Docker Compose for parity with the deployed environment.",
-      "Infrastructure is provisioned with Terraform targeting Azure Container Apps.",
-      "CI/CD via GitHub Actions is planned but not yet implemented — the pipeline currently deploys manually.",
-    ],
-    stats: [
-      { label: "Tests", value: "28" },
-      { label: "Orchestration", value: "Compose" },
-      { label: "IaC", value: "Terraform" },
-    ],
-    stack: ["Docker Compose", "Terraform", "Azure Container Apps", "Python"],
-    githubUrl: "https://github.com/jirumil/guard-rail-devops",
-    liveUrl: "https://guardrail.your-domain.dev",
-    accent: "violet",
-    icon: ShieldCheck,
-  },
-  {
     id: "richenia-shop",
-    eyebrow: "E-commerce",
     title: "Richenia Shop",
+    tags: ["E-Commerce", "Full-Stack", "React/Next.js"],
     description:
-      "Full e-commerce application covering the complete customer and admin flow.",
+      "Next.js e-commerce application featuring product catalog management, smooth cart flows, and modern UI.",
     longDescription:
-      "Richenia Shop is a raw PHP/MySQL/vanilla-JS e-commerce application. An existing 47-file codebase was audited and upgraded for serverless deployment on Vercel via the vercel-php runtime — restructuring routes, adding a database-backed session handler, and wiring environment-variable-driven config with local XAMPP fallbacks.",
-    architecture: [
-      "All root-level PHP pages were restructured into an api/ directory to fit the vercel-php runtime model.",
-      "Sessions are handled with a database-backed PHP session handler instead of the filesystem.",
-      "Database config is environment-variable-driven, with XAMPP fallbacks for local development.",
-      "Clean-URL rewrite rules are defined in vercel.json; auth/roles, order history, AJAX live search, coupons, and admin analytics were audited and confirmed already correctly implemented.",
+      "Richenia Shop is a full e-commerce application built on Next.js, covering the complete customer journey from browsing the catalog to checkout, alongside an admin-facing management layer.",
+    features: [
+      "Product catalog with category browsing and search",
+      "Persistent cart with smooth add/update/remove flows",
+      "Responsive, modern UI built with Tailwind CSS",
+      "Deployed and live on Vercel",
     ],
-    stats: [
-      { label: "Files audited", value: "47" },
-      { label: "Runtime", value: "vercel-php" },
-      { label: "Sessions", value: "DB-backed" },
+    takeaways: [
+      "Structuring a Next.js app router project so catalog, cart, and checkout stay decoupled and easy to extend",
+      "Keeping UI state predictable across cart interactions without over-fetching",
     ],
-    stack: ["PHP", "MySQL", "Vanilla JS", "Vercel", "AJAX"],
+    status: "Live",
     githubUrl: "https://github.com/jirumil/Richenia-Shop",
     liveUrl: "https://richenia-shop.vercel.app",
-    accent: "cyan",
-    icon: ShoppingCart,
+  },
+  {
+    id: "guardrail-devops",
+    title: "GuardRail DevOps Architecture",
+    tags: ["DevOps", "CI/CD", "Docker", "Automation"],
+    description:
+      "DevOps pipeline architecture focusing on containerized deployments, security guardrails, and deployment workflows.",
+    longDescription:
+      "GuardRail is a DevOps pipeline architecture built to containerize deployments and enforce security guardrails throughout the delivery workflow, from local development to a reproducible deployment target.",
+    features: [
+      "Containerized services orchestrated with Docker Compose",
+      "Deployment workflow structured around repeatable, guarded steps",
+      "Environment-variable-driven configuration for portability",
+      "Infrastructure-as-code approach to environment setup",
+    ],
+    takeaways: [
+      "Designing guardrails into a deployment pipeline rather than bolting them on after the fact",
+      "Keeping local Docker environments in parity with the deployed target",
+    ],
+    status: "Repository Only",
+    githubUrl: "https://github.com/jirumil/guard-rail-devops",
+  },
+  {
+    id: "richenia-ticketing-system",
+    title: "Richenia Ticketing System",
+    tags: ["Full-Stack", "Issue Tracking", "Workflow"],
+    description:
+      "Internal issue tracking and ticket management platform designed for rapid resolution workflows.",
+    longDescription:
+      "An internal issue tracking and ticket management platform built to support fast, structured resolution workflows for a small team, from ticket intake to close-out.",
+    features: [
+      "Ticket creation, status tracking, and assignment",
+      "Structured workflow states designed for rapid triage",
+      "Full-stack implementation covering both UI and data layer",
+    ],
+    takeaways: [
+      "Modeling a ticket lifecycle that stays simple for a small team but doesn't box out future workflow states",
+      "Balancing full-stack scope against a focused, internal-tool feature set",
+    ],
+    status: "Repository Only",
+    githubUrl: "https://github.com/jirumil/richenia-ticketing-system",
   },
 ];

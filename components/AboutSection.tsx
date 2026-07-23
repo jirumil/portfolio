@@ -21,13 +21,8 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative border-t border-white/5 bg-[#08080a] px-6 py-24 sm:px-10 lg:px-12"
+      className="relative border-t border-primary/10 bg-background px-6 py-24 sm:px-10 lg:px-12"
     >
-      {/* Soft ambient glow, matching the hero's language but quieter */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[-10%] top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(124,92,255,0.14),transparent_72%)] blur-[100px]" />
-      </div>
-
       <motion.div
         variants={staggerParent}
         initial="hidden"
@@ -36,28 +31,28 @@ export default function AboutSection() {
         className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]"
       >
         <motion.div variants={fadeUp}>
-          <span className="font-mono text-xs uppercase tracking-[0.16em] text-white/40">
-            About
+          <span className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
+            [ About ]
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-semibold text-white">
+          <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
             Full-stack roots, platform-engineering focus.
           </h2>
-          <p className="mt-5 text-sm leading-relaxed text-white/60">
-            I'm a 4th-year BS Information Technology student at Rizal
+          <p className="mt-5 text-sm leading-relaxed text-navy/65">
+            I&apos;m a 4th-year BS Information Technology student at Rizal
             Technological University, building toward a role in DevOps and
             platform engineering. My work spans full-stack development,
-            cloud infrastructure, and CI/CD — I develop on WSL2 and I'm
+            cloud infrastructure, and CI/CD — I develop on WSL2 and I&apos;m
             comfortable moving between application code and the
             infrastructure it runs on.
           </p>
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm">
-            <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-[#8BE9F5]">
+          <div className="rounded-2xl border border-primary/20 bg-surface/60 p-6">
+            <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
               Background
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/65">
+            <ul className="mt-4 space-y-3 text-sm text-navy/70">
               <li>
                 IT Support &amp; Network Technician internship at Licaland
                 (Feb–Apr 2026) — FreePBX, MikroTik networking, CCTV, and
@@ -74,8 +69,8 @@ export default function AboutSection() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm">
-            <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-[#B8A9FF]">
+          <div className="rounded-2xl border border-primary/20 bg-surface/60 p-6">
+            <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
               Core skills
             </h3>
             <div className="mt-4 flex flex-wrap gap-2">

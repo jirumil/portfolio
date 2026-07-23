@@ -6,8 +6,8 @@ import { GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 import LegalModal, { type LegalDoc } from "./LegalModal";
 
 const QUICK_LINKS = [
-  { href: "#about", label: "About" },
   { href: "#work", label: "Work" },
+  { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
@@ -17,13 +17,21 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/5 bg-[#08080a] px-6 py-12 sm:px-10 lg:px-12">
+    <footer className="border-t border-primary/10 bg-background px-6 py-12 sm:px-10 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-xs">
-          <span className="font-mono text-sm text-white/80">Jean Jeromel Hilanga</span>
-          <p className="mt-2 text-xs leading-relaxed text-white/40">
-            DevOps &amp; platform engineering, with roots in full-stack
-            development and e-commerce systems.
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="font-mono text-sm text-navy">
+              Jean Jeromel Hilanga
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-surface/60 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-navy/60">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Manila, PH
+            </span>
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-navy/50">
+            Web developer expanding into full-stack architecture and DevOps
+            workflows.
           </p>
           <div className="mt-4 flex items-center gap-3">
             <a
@@ -31,7 +39,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub"
-              className="text-white/40 transition-colors hover:text-white"
+              className="text-navy/50 transition-colors hover:text-primary"
             >
               <GithubIcon className="h-4 w-4" />
             </a>
@@ -40,7 +48,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn"
-              className="text-white/40 transition-colors hover:text-white"
+              className="text-navy/50 transition-colors hover:text-primary"
             >
               <LinkedinIcon className="h-4 w-4" />
             </a>
@@ -49,7 +57,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Email"
-              className="text-white/40 transition-colors hover:text-white"
+              className="text-navy/50 transition-colors hover:text-primary"
             >
               <MailIcon className="h-4 w-4" />
             </a>
@@ -61,7 +69,7 @@ export default function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="font-mono text-xs text-white/40 transition-colors hover:text-white/75"
+              className="font-mono text-xs text-navy/50 transition-colors hover:text-primary"
             >
               {link.label}
             </a>
@@ -69,22 +77,22 @@ export default function Footer() {
         </nav>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-white/5 pt-6 sm:flex-row">
-        <p className="font-mono text-xs text-white/35">
+      <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-primary/10 pt-6 sm:flex-row">
+        <p className="font-mono text-xs text-navy/40">
           © {year} Jean Jeromel Hilanga. All rights reserved.
         </p>
 
         <div className="flex items-center gap-6">
           <button
             onClick={() => setLegalDoc("privacy")}
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-white/35 transition-colors hover:text-white/70"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
           >
             <Lock className="h-3 w-3" />
             Privacy Policy
           </button>
           <button
             onClick={() => setLegalDoc("terms")}
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-white/35 transition-colors hover:text-white/70"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
           >
             <FileText className="h-3 w-3" />
             Terms of Service

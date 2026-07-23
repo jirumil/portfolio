@@ -2,13 +2,9 @@
 
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
+import TechPill from "./TechPill";
 import Modal from "./Modal";
 import type { Project } from "@/lib/projects";
-
-const accentText: Record<Project["accent"], string> = {
-  violet: "text-[#B8A9FF]",
-  cyan: "text-[#8BE9F5]",
-};
 
 export default function ProjectModal({
   project,
@@ -27,88 +23,92 @@ export default function ProjectModal({
       {project && (
         <>
           <span
-            className={`font-mono text-[11px] uppercase tracking-[0.16em] ${accentText[project.accent]}`}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide ${
+              project.status === "Live"
+                ? "border-primary/30 bg-primary/10 text-primary"
+                : "border-navy/20 bg-navy/5 text-navy/50"
+            }`}
           >
-            {project.eyebrow}
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${
+                project.status === "Live" ? "bg-primary" : "bg-navy/40"
+              }`}
+            />
+            {project.status}
           </span>
+
           <h2
             id="project-modal-title"
-            className="mt-2 text-2xl font-semibold text-white"
+            className="mt-3 text-2xl font-semibold text-navy"
           >
             {project.title}
           </h2>
 
-          <p className="mt-4 text-sm leading-relaxed text-white/65">
-            {project.longDescription}
-          </p>
-
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            {project.stats.map((s) => (
-              <div
-                key={s.label}
-                className="rounded-lg border border-white/5 bg-white/[0.02] px-3 py-2.5"
-              >
-                <div className="font-mono text-sm font-medium text-white">
-                  {s.value}
-                </div>
-                <div className="mt-0.5 text-[10px] uppercase tracking-wide text-white/40">
-                  {s.label}
-                </div>
-              </div>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <TechPill key={tag} label={tag} />
             ))}
           </div>
 
+          <p className="mt-5 text-sm leading-relaxed text-navy/70">
+            {project.longDescription}
+          </p>
+
           <div className="mt-6">
-            <h3 className="font-mono text-xs uppercase tracking-wide text-white/45">
-              Architecture breakdown
+            <h3 className="font-mono text-xs uppercase tracking-wide text-primary">
+              Key features
             </h3>
             <ul className="mt-3 space-y-2.5">
-              {project.architecture.map((point) => (
+              {project.features.map((point) => (
                 <li
                   key={point}
-                  className="flex gap-2.5 text-sm leading-relaxed text-white/60"
+                  className="flex gap-2.5 text-sm leading-relaxed text-navy/70"
                 >
-                  <span
-                    className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
-                      project.accent === "violet" ? "bg-[#7C5CFF]" : "bg-[#22D3EE]"
-                    }`}
-                  />
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
                   {point}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[11px] text-white/60"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="mt-6">
+            <h3 className="font-mono text-xs uppercase tracking-wide text-primary">
+              Key takeaways
+            </h3>
+            <ul className="mt-3 space-y-2.5">
+              {project.takeaways.map((point) => (
+                <li
+                  key={point}
+                  className="flex gap-2.5 text-sm leading-relaxed text-navy/70"
+                >
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-navy/40" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="mt-7 flex items-center gap-5 border-t border-white/5 pt-6">
+          <div className="mt-7 flex items-center gap-5 border-t border-primary/15 pt-6">
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-white/75 transition-colors hover:text-white"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-navy/75 transition-colors hover:text-primary"
             >
               <GithubIcon className="h-4 w-4" />
-              View source
+              View Source
             </a>
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noreferrer noopener"
-              className={`inline-flex items-center gap-1.5 text-sm font-medium ${accentText[project.accent]} transition-opacity hover:opacity-80`}
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live deployment
-            </a>
+            {project.status === "Live" && project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-opacity hover:opacity-75"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Live Demo
+              </a>
+            )}
           </div>
         </>
       )}
