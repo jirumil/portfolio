@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
 import TechPill from "./TechPill";
-import HoverBubble, { useHoverBubble } from "./HoverBubble";
 import { cardHover } from "@/lib/motion";
+import { useCursorHover } from "@/lib/cursor-bus";
 import type { Project } from "@/lib/projects";
 
 export default function ProjectCard({
@@ -17,7 +17,9 @@ export default function ProjectCard({
 }) {
   const { title, tags, description, status, githubUrl, liveUrl } = project;
   const isLive = status === "Live";
-  const { bubbleProps, x, y, active } = useHoverBubble();
+  const cardHoverProps = useCursorHover("Explore");
+  const sourceHover = useCursorHover("Source");
+  const liveHover = useCursorHover("Live");
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLDivElement>) {
     if (e.key === "Enter" || e.key === " ") {
@@ -28,7 +30,7 @@ export default function ProjectCard({
 
   return (
     <motion.div
-      {...bubbleProps}
+      {...cardHoverProps}
       initial="rest"
       whileHover="hover"
       animate="rest"
@@ -38,10 +40,8 @@ export default function ProjectCard({
       role="button"
       tabIndex={0}
       aria-label={`Expand details for ${title}`}
-      className="project-card-item group relative flex h-full cursor-pointer flex-col rounded-2xl border border-primary/20 bg-surface/60 p-6 backdrop-blur-sm outline-none transition-colors hover:border-primary/40 focus-visible:border-primary/60 sm:p-7"
+      className="project-card-item group relative flex h-full cursor-pointer flex-col rounded-2xl border border-primary/10 bg-surface p-6 outline-none transition-colors hover:bg-surface-strong focus-visible:border-primary/40 sm:p-7"
     >
-      <HoverBubble x={x} y={y} active={active} label="Tap to expand" />
-
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-xl font-semibold text-navy sm:text-2xl">
           {title}
@@ -78,6 +78,7 @@ export default function ProjectCard({
           target="_blank"
           rel="noreferrer noopener"
           onClick={(e) => e.stopPropagation()}
+          {...sourceHover}
           className="relative z-10 inline-flex items-center gap-1.5 text-sm font-medium text-navy/75 transition-colors hover:text-primary"
         >
           <GithubIcon className="h-4 w-4" />
@@ -89,6 +90,7 @@ export default function ProjectCard({
             target="_blank"
             rel="noreferrer noopener"
             onClick={(e) => e.stopPropagation()}
+            {...liveHover}
             className="relative z-10 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-opacity hover:opacity-75"
           >
             <ExternalLink className="h-4 w-4" />

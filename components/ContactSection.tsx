@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 import { fadeUp, staggerParent } from "@/lib/motion";
+import { useCursorHover } from "@/lib/cursor-bus";
 
 interface FormState {
   name: string;
@@ -30,6 +31,10 @@ export default function ContactSection() {
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [sent, setSent] = useState(false);
+  const mailHover = useCursorHover();
+  const githubHover = useCursorHover();
+  const linkedinHover = useCursorHover();
+  const submitHover = useCursorHover("Send");
 
   function validate(values: FormState): FormErrors {
     const next: FormErrors = {};
@@ -101,6 +106,7 @@ export default function ContactSection() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=jeanhilanga08@gmail.com"
               target="_blank"
               rel="noreferrer noopener"
+              {...mailHover}
               className="inline-flex w-fit items-center gap-2.5 text-sm text-navy/70 transition-colors hover:text-primary"
             >
               <MailIcon className="h-4 w-4" />
@@ -110,6 +116,7 @@ export default function ContactSection() {
               href="https://github.com/jirumil"
               target="_blank"
               rel="noreferrer noopener"
+              {...githubHover}
               className="inline-flex w-fit items-center gap-2.5 text-sm text-navy/70 transition-colors hover:text-primary"
             >
               <GithubIcon className="h-4 w-4" />
@@ -119,6 +126,7 @@ export default function ContactSection() {
               href="https://www.linkedin.com/in/jean-jeromel-hilanga-59b2333a0"
               target="_blank"
               rel="noreferrer noopener"
+              {...linkedinHover}
               className="inline-flex w-fit items-center gap-2.5 text-sm text-navy/70 transition-colors hover:text-primary"
             >
               <LinkedinIcon className="h-4 w-4" />
@@ -131,7 +139,7 @@ export default function ContactSection() {
           <form
             onSubmit={handleSubmit}
             noValidate
-            className="flex flex-col gap-4 rounded-2xl border border-primary/20 bg-surface/60 p-6 sm:p-7"
+            className="flex flex-col gap-4 rounded-2xl border border-primary/10 bg-surface p-6 sm:p-7"
           >
             <div className="flex flex-col gap-1.5">
               <label htmlFor="name" className="font-mono text-xs text-navy/60">
@@ -211,7 +219,8 @@ export default function ContactSection() {
 
             <button
               type="submit"
-              className="mt-1 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              {...submitHover}
+              className="mt-1 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
             >
               Send Message
             </button>

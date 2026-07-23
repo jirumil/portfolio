@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Lock, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon, MailIcon } from "./icons";
 import LegalModal, { type LegalDoc } from "./LegalModal";
+import { useCursorHover } from "@/lib/cursor-bus";
 
 const QUICK_LINKS = [
   { href: "#work", label: "Work" },
@@ -12,9 +13,27 @@ const QUICK_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
+function FooterNavLink({ href, label }: { href: string; label: string }) {
+  const hoverProps = useCursorHover();
+  return (
+    <a
+      href={href}
+      {...hoverProps}
+      className="font-mono text-xs text-navy/50 transition-colors hover:text-primary"
+    >
+      {label}
+    </a>
+  );
+}
+
 export default function Footer() {
   const [legalDoc, setLegalDoc] = useState<LegalDoc>(null);
   const year = new Date().getFullYear();
+  const githubHover = useCursorHover();
+  const linkedinHover = useCursorHover();
+  const mailHover = useCursorHover();
+  const privacyHover = useCursorHover();
+  const termsHover = useCursorHover();
 
   return (
     <footer className="border-t border-primary/10 bg-background px-6 py-12 sm:px-10 lg:px-12">
@@ -39,6 +58,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub"
+              {...githubHover}
               className="text-navy/50 transition-colors hover:text-primary"
             >
               <GithubIcon className="h-4 w-4" />
@@ -48,6 +68,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn"
+              {...linkedinHover}
               className="text-navy/50 transition-colors hover:text-primary"
             >
               <LinkedinIcon className="h-4 w-4" />
@@ -57,6 +78,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Email"
+              {...mailHover}
               className="text-navy/50 transition-colors hover:text-primary"
             >
               <MailIcon className="h-4 w-4" />
@@ -66,13 +88,7 @@ export default function Footer() {
 
         <nav className="flex gap-6">
           {QUICK_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-xs text-navy/50 transition-colors hover:text-primary"
-            >
-              {link.label}
-            </a>
+            <FooterNavLink key={link.href} {...link} />
           ))}
         </nav>
       </div>
@@ -85,6 +101,7 @@ export default function Footer() {
         <div className="flex items-center gap-6">
           <button
             onClick={() => setLegalDoc("privacy")}
+            {...privacyHover}
             className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
           >
             <Lock className="h-3 w-3" />
@@ -92,6 +109,7 @@ export default function Footer() {
           </button>
           <button
             onClick={() => setLegalDoc("terms")}
+            {...termsHover}
             className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
           >
             <FileText className="h-3 w-3" />

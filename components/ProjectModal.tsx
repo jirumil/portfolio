@@ -4,6 +4,7 @@ import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
 import TechPill from "./TechPill";
 import Modal from "./Modal";
+import { useCursorHover } from "@/lib/cursor-bus";
 import type { Project } from "@/lib/projects";
 
 export default function ProjectModal({
@@ -13,6 +14,9 @@ export default function ProjectModal({
   project: Project | null;
   onClose: () => void;
 }) {
+  const sourceHover = useCursorHover("Source");
+  const liveHover = useCursorHover("Live");
+
   return (
     <Modal
       open={!!project}
@@ -93,6 +97,7 @@ export default function ProjectModal({
               href={project.githubUrl}
               target="_blank"
               rel="noreferrer noopener"
+              {...sourceHover}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-navy/75 transition-colors hover:text-primary"
             >
               <GithubIcon className="h-4 w-4" />
@@ -103,6 +108,7 @@ export default function ProjectModal({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer noopener"
+                {...liveHover}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-opacity hover:opacity-75"
               >
                 <ExternalLink className="h-4 w-4" />
