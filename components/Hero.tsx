@@ -8,24 +8,12 @@ import { useCursorHover } from "@/lib/cursor-bus";
 export default function Hero() {
   const viewWorkHover = useCursorHover("Go");
   const contactHover = useCursorHover("Go");
-  const resumeHover = useCursorHover("Open");
   const scrollHover = useCursorHover();
   return (
     <section
       id="top"
       className="relative isolate min-h-[100vh] w-full overflow-hidden bg-background"
     >
-      {/* Faint dot-grid texture — quiet, editorial, not a glow-orb hero */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(17,17,17,0.14) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-
       <motion.div
         variants={staggerParent}
         initial="hidden"
@@ -78,25 +66,16 @@ export default function Hero() {
           <a
             href="#work"
             {...viewWorkHover}
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-background transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
+            className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-background transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-accent-hover active:scale-[0.98]"
           >
             View Work
           </a>
           <a
             href="#contact"
             {...contactHover}
-            className="rounded-full border border-primary/15 bg-surface px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-primary/30 hover:bg-surface-strong"
+            className="rounded-full border border-primary/15 bg-surface px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-accent-hover hover:text-accent-hover"
           >
             Get in Touch
-          </a>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer noopener"
-            {...resumeHover}
-            className="inline-flex items-center gap-1 px-1 text-sm font-medium text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:text-navy"
-          >
-            Download Resume ↗
           </a>
         </motion.div>
 
@@ -104,7 +83,7 @@ export default function Hero() {
           href="#work"
           variants={fadeUp}
           {...scrollHover}
-          className="mt-6 inline-flex w-fit items-center gap-2 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
+          className="mt-6 inline-flex w-fit items-center gap-2 font-mono text-xs text-navy/40 transition-colors hover:text-accent-hover"
         >
           <ArrowDown className="h-3.5 w-3.5 animate-bounce" />
           scroll

@@ -15,20 +15,20 @@ export const PROJECTS: Project[] = [
   {
     id: "richenia-shop",
     title: "Richenia Shop",
-    tags: ["E-Commerce", "Full-Stack", "React/Next.js"],
+    tags: ["E-Commerce", "Full-Stack", "PHP / MySQL"],
     description:
-      "Next.js e-commerce application featuring product catalog management, smooth cart flows, and modern UI.",
+      "E-commerce application featuring product catalog management, smooth cart flows, and modern UI — audited and hardened for serverless deployment.",
     longDescription:
-      "Richenia Shop is a full e-commerce application built on Next.js, covering the complete customer journey from browsing the catalog to checkout, alongside an admin-facing management layer.",
+      "Richenia Shop is a raw PHP/MySQL/vanilla-JS e-commerce application covering the complete customer journey from browsing the catalog to checkout, alongside an admin-facing management layer. An existing 47-file codebase was audited and upgraded for serverless deployment on Vercel via the vercel-php runtime.",
     features: [
       "Product catalog with category browsing and search",
       "Persistent cart with smooth add/update/remove flows",
-      "Responsive, modern UI built with Tailwind CSS",
-      "Deployed and live on Vercel",
+      "Database-backed PHP session handler for serverless compatibility",
+      "Deployed and live on Vercel via the vercel-php runtime",
     ],
     takeaways: [
-      "Structuring a Next.js app router project so catalog, cart, and checkout stay decoupled and easy to extend",
-      "Keeping UI state predictable across cart interactions without over-fetching",
+      "Restructuring a raw PHP codebase to fit a serverless runtime model without a framework's routing conventions to lean on",
+      "Keeping session and config handling portable between local XAMPP and the deployed environment",
     ],
     status: "Live",
     githubUrl: "https://github.com/jirumil/Richenia-Shop",
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
   {
     id: "guardrail-devops",
     title: "GuardRail DevOps Architecture",
-    tags: ["DevOps", "CI/CD", "Docker", "Automation"],
+    tags: ["DevOps", "Docker", "Terraform", "Automation"],
     description:
       "DevOps pipeline architecture focusing on containerized deployments, security guardrails, and deployment workflows.",
     longDescription:
@@ -46,11 +46,12 @@ export const PROJECTS: Project[] = [
       "Containerized services orchestrated with Docker Compose",
       "Deployment workflow structured around repeatable, guarded steps",
       "Environment-variable-driven configuration for portability",
-      "Infrastructure-as-code approach to environment setup",
+      "Infrastructure-as-code approach to environment setup via Terraform",
     ],
     takeaways: [
       "Designing guardrails into a deployment pipeline rather than bolting them on after the fact",
       "Keeping local Docker environments in parity with the deployed target",
+      "CI/CD via GitHub Actions is planned but not yet implemented — the pipeline currently deploys manually",
     ],
     status: "Repository Only",
     githubUrl: "https://github.com/jirumil/guard-rail-devops",

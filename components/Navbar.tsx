@@ -18,7 +18,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
     <a
       href={href}
       {...hoverProps}
-      className="text-sm text-navy/60 transition-colors hover:text-navy"
+      className="text-sm text-navy/60 transition-colors hover:text-accent-hover"
     >
       {label}
     </a>

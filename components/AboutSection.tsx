@@ -34,21 +34,21 @@ export default function AboutSection() {
           <span className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
             [ About ]
           </span>
-          <h2 className="mt-3 text-3xl font-semibold text-navy sm:text-4xl">
+          <h2 className="mt-3 font-serif text-3xl font-medium tracking-tight text-navy sm:text-4xl">
             Full-stack roots, platform-engineering focus.
           </h2>
           <p className="mt-5 text-sm leading-relaxed text-navy/65">
-            I&apos;m a 4th-year BS Information Technology student at Rizal
-            Technological University, building toward a role in DevOps and
-            platform engineering. My work spans full-stack development,
-            cloud infrastructure, and CI/CD — I develop on WSL2 and I&apos;m
-            comfortable moving between application code and the
-            infrastructure it runs on.
+            My work spans full-stack development, cloud infrastructure, and
+            CI/CD pipelines. I adapt quickly across various development
+            environments — whether orchestrating Linux workflows in WSL,
+            spinning up Node.js services, or managing legacy XAMPP stacks. I
+            focus on writing maintainable code, containerizing applications
+            with Docker, and building clean, responsive user interfaces.
           </p>
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-primary/20 bg-surface/60 p-6">
+          <div className="rounded-2xl border border-white/10 bg-surface/60 p-6">
             <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
               Background
             </h3>
@@ -69,7 +69,7 @@ export default function AboutSection() {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-primary/20 bg-surface/60 p-6">
+          <div className="rounded-2xl border border-white/10 bg-surface/60 p-6">
             <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
               Core skills
             </h3>

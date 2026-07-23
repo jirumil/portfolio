@@ -53,7 +53,7 @@ export default function ExperienceSection() {
               variants={fadeUp}
               className="relative pb-12 last:pb-0"
             >
-              <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_0_4px_rgba(17,17,17,0.1)]" />
+              <span className="absolute -left-[calc(2rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-primary shadow-[0_0_0_4px_rgba(63,114,175,0.2)]" />
               <span className="font-mono text-xs uppercase tracking-wide text-primary">
                 {m.period}
               </span>

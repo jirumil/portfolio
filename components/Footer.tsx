@@ -19,7 +19,7 @@ function FooterNavLink({ href, label }: { href: string; label: string }) {
     <a
       href={href}
       {...hoverProps}
-      className="font-mono text-xs text-navy/50 transition-colors hover:text-primary"
+      className="font-mono text-xs text-navy/50 transition-colors hover:text-accent-hover"
     >
       {label}
     </a>
@@ -39,15 +39,9 @@ export default function Footer() {
     <footer className="border-t border-primary/10 bg-background px-6 py-12 sm:px-10 lg:px-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-xs">
-          <div className="flex flex-wrap items-center gap-2.5">
-            <span className="font-mono text-sm text-navy">
-              Jean Jeromel Hilanga
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-surface/60 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-navy/60">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Manila, PH
-            </span>
-          </div>
+          <span className="font-mono text-sm text-navy">
+            Jean Jeromel Hilanga
+          </span>
           <p className="mt-2 text-xs leading-relaxed text-navy/50">
             Web developer expanding into full-stack architecture and DevOps
             workflows.
@@ -59,7 +53,7 @@ export default function Footer() {
               rel="noreferrer noopener"
               aria-label="GitHub"
               {...githubHover}
-              className="text-navy/50 transition-colors hover:text-primary"
+              className="text-navy/50 transition-colors hover:text-accent-hover"
             >
               <GithubIcon className="h-4 w-4" />
             </a>
@@ -69,7 +63,7 @@ export default function Footer() {
               rel="noreferrer noopener"
               aria-label="LinkedIn"
               {...linkedinHover}
-              className="text-navy/50 transition-colors hover:text-primary"
+              className="text-navy/50 transition-colors hover:text-accent-hover"
             >
               <LinkedinIcon className="h-4 w-4" />
             </a>
@@ -79,7 +73,7 @@ export default function Footer() {
               rel="noreferrer noopener"
               aria-label="Email"
               {...mailHover}
-              className="text-navy/50 transition-colors hover:text-primary"
+              className="text-navy/50 transition-colors hover:text-accent-hover"
             >
               <MailIcon className="h-4 w-4" />
             </a>
@@ -102,7 +96,7 @@ export default function Footer() {
           <button
             onClick={() => setLegalDoc("privacy")}
             {...privacyHover}
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-accent-hover"
           >
             <Lock className="h-3 w-3" />
             Privacy Policy
@@ -110,7 +104,7 @@ export default function Footer() {
           <button
             onClick={() => setLegalDoc("terms")}
             {...termsHover}
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-primary"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-navy/40 transition-colors hover:text-accent-hover"
           >
             <FileText className="h-3 w-3" />
             Terms of Service

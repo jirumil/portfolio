@@ -98,7 +98,7 @@ export default function ProjectModal({
               target="_blank"
               rel="noreferrer noopener"
               {...sourceHover}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-navy/75 transition-colors hover:text-primary"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-navy/75 transition-colors hover:text-accent-hover"
             >
               <GithubIcon className="h-4 w-4" />
               View Source
@@ -109,7 +109,7 @@ export default function ProjectModal({
                 target="_blank"
                 rel="noreferrer noopener"
                 {...liveHover}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-opacity hover:opacity-75"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-accent-hover"
               >
                 <ExternalLink className="h-4 w-4" />
                 Live Demo

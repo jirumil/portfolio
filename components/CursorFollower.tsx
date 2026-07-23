@@ -67,17 +67,18 @@ export default function CursorFollower() {
         animate={{
           width: variant === "hover" ? (label ? 76 : 56) : 16,
           height: variant === "hover" ? (label ? 76 : 56) : 16,
-          backgroundColor: variant === "hover" ? "var(--color-primary)" : "rgba(17,17,17,0.06)",
-          borderColor: variant === "hover" ? "var(--color-primary)" : "rgba(17,17,17,0.25)",
+          borderWidth: variant === "hover" ? "1.5px" : "1px",
+          borderColor: variant === "hover" ? "#E2B883" : "rgba(226,184,131,0.5)",
+          boxShadow: variant === "hover" ? "0 0 24px 4px rgba(226,184,131,0.25)" : "0 0 0 0 rgba(226,184,131,0)",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 24, mass: 0.5 }}
-        className="flex items-center justify-center rounded-full border"
+        className="flex items-center justify-center rounded-full border bg-transparent backdrop-blur-[1px]"
       >
         {variant === "hover" && label ? (
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="select-none font-mono text-[11px] uppercase tracking-wide text-background"
+            className="select-none font-mono text-[11px] uppercase tracking-wide text-[#E2B883]"
           >
             {label}
           </motion.span>
